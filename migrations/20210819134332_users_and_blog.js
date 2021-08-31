@@ -12,6 +12,7 @@ exports.up = function(knex) {
         table.string('title').notNullable();
         table.string('author').notNullable();
         table.string('content', 300).notNullable();
+        table.string('img').notNullable();
     })
   
 };

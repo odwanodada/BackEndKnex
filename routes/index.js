@@ -124,9 +124,10 @@ router.post('/add-blog', (req, res) => {
         .insert({
             title: req.body.title,
             author: req.body.author,
+            img: req.body.img,
             content: req.body.content,
         })
-        .returning(['id', 'title', 'author', 'content'])
+        .returning(['id', 'title', 'author','img', 'content'])
            .then(blogs => {
                res.status(200).json({
                    status: 'ok',
@@ -152,6 +153,7 @@ router.put('/update-blog/:id', (req, res) => {
         .update({
             title: req.body.title,
             author: req.body.author,
+            img: req.body.img,
             content: req.body.content,
         })
         .returning(['id', 'title', 'author', 'content'])
@@ -180,7 +182,7 @@ router.delete('/del-blog/:id', (req, res) => {
             res.status(200).json({
                 status: 'ok',
                 data: 'Blog deleted'
-             })
+             })   
            })
     } catch (error) {
         res.status(400).json({
