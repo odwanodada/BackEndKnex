@@ -1,22 +1,26 @@
-// Update with your config settings.
+const dotenv = require("dotenv");
+
+dotenv.config();
+
+const { CLIENT, DATABASE, USER, PASSWORD } = process.env;
 
 module.exports = {
   development: {
-    client: 'postgresql',
+    client: "",
     connection: {
-      database: 'Blog',
-      user:     'postgres',
-      password: 'nodada'
+      database: "",
+      user: "",
+      password: "",
     },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      __directory: './db/knex.js'
+      __directory: "./db/knex.js",
     },
     seeds: {
-      __directory: './db/knex.js'
-    }
+      __directory: "./db/knex.js",
+    },
   },
 };
